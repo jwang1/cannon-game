@@ -5,7 +5,7 @@ import android.graphics.Rect;
 
 import com.iexpress.android.cannongame.CannonView;
 
-class Cannonball extends GameElement {
+public class Cannonball extends GameElement {
     private float velocityX;
     private boolean onScreen;
 

@@ -7,6 +7,7 @@ import android.graphics.Point;
 
 import com.iexpress.android.cannongame.CannonView;
 
+
 public class Cannon {
     private int baseRadius;
     private int barrelLength;
