@@ -45,8 +45,10 @@ public class GameResultDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog,
                                         int which) {
-                        view.setDialogIsDisplayed(false);
-                        view.newGame(); // set up and start a new game
+                        if (view != null) {
+                            view.setDialogIsDisplayed(false);
+                            view.newGame(); // set up and start a new game
+                        }
                     }
                 }
         );
