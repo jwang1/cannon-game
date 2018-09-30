@@ -19,6 +19,8 @@ public class GameResultDialogFragment extends DialogFragment {
                                                        CannonView view) {
         GameResultDialogFragment dialogFragment = new GameResultDialogFragment();
 
+        dialogFragment.view = view;
+
         Bundle args = new Bundle();
         args.putString("title", title);
         args.putString("message", message);

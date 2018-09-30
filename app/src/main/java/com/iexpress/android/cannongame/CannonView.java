@@ -290,7 +290,6 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
                         R.string.results_format, shotsFired, totalElapsedTime),
                 this);
 
-
         // in GUI thread, use FragmentManager to display the DialogFragment
         activity.runOnUiThread(
                 new Runnable() {
