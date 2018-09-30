@@ -1,5 +1,6 @@
 package com.iexpress.android.cannongame.element;
 
+import android.graphics.Canvas;
 import android.graphics.Rect;
 
 import com.iexpress.android.cannongame.CannonView;
@@ -33,6 +34,28 @@ class Cannonball extends GameElement {
 
     public void reverseVelocityX() {
         velocityX *= -1;
+    }
+
+    @Override
+    public void update(double interval) {
+        super.update(interval);
+
+        // horizontal position
+        shape.offset((int) (velocityX * interval), 0);
+
+        // cannon ball off screen
+        if (shape.top < 0 || shape.left < 0 || shape.bottom > view.getScreenHeight()
+                || shape.right > view.getScreenWidth()) {
+
+            // cannon ball will be removed
+            onScreen = false;
+        }
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        canvas.drawCircle(shape.left + getRadius(),
+                shape.top + getRadius(), getRadius(), paint);
     }
 
 }
