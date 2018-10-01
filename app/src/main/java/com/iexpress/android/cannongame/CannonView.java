@@ -31,8 +31,9 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
     private static final String TAG = "CannonView"; // for logging errors
 
     // constants for game play
-    public static final int MISS_PENALTY = 2; // seconds deducted on a miss
-    public static final int HIT_REWARD = 3; // seconds added on a hit
+    public static final int MISS_PENALTY = 1; // seconds deducted on a miss
+    public static final int HIT_REWARD = 20; // seconds added on a hit
+    private static final int GAME_TIME_SECONDES = 60;
 
     // constants for the Cannon
     public static final double CANNON_BASE_RADIUS_PERCENT = 3.0 / 40;
@@ -48,7 +49,7 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
     public static final double TARGET_LENGTH_PERCENT = 3.0 / 20;
     public static final double TARGET_FIRST_X_PERCENT = 3.0 / 5;
     public static final double TARGET_SPACING_PERCENT = 1.0 / 60;
-    public static final double TARGET_PIECES = 9;
+    public static final double TARGET_PIECES = 5;
     public static final double TARGET_MIN_SPEED_PERCENT = 3.0 / 4;
     public static final double TARGET_MAX_SPEED_PERCENT = 6.0 / 4;
 
@@ -208,7 +209,7 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
                 (int) (BLOCKER_LENGTH_PERCENT * screenHeight),
                 (float) (BLOCKER_SPEED_PERCENT * screenHeight), MISS_PENALTY);
 
-        timeLeft = 10; // start the countdown at 10 seconds
+        timeLeft = GAME_TIME_SECONDES; // start the countdown at 10 seconds
 
         shotsFired = 0; // set the initial number of shots fired
         totalElapsedTime = 0.0; // set the time elapsed to zero

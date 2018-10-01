@@ -22,7 +22,7 @@ public class Cannon {
         this.baseRadius = baseRadius;
         this.barrelLength = barrelLength;
         paint.setStrokeWidth(barrelWidth);
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.MAGENTA);
         // cannon barrel facing straight right
         align(Math.PI / 2);
     }
