@@ -17,9 +17,6 @@ public class Cannonball extends GameElement {
 
     }
 
-    public void playSound() {
-    }
-
     public int getRadius() {
         return (shape.right - shape.left) / 2;
     }

@@ -316,9 +316,9 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
         cannon.draw(canvas); // draw the cannon
 
         // draw the GameElements
-        if (cannon.getCannonball() != null &&
-                cannon.getCannonball().isOnScreen())
+        if (cannon.getCannonball() != null && cannon.getCannonball().isOnScreen()) {
             cannon.getCannonball().draw(canvas);
+        }
 
         blocker.draw(canvas); // draw the blocker
 
