@@ -21,6 +21,9 @@ public class Cannon {
         this.view = view;
         this.baseRadius = baseRadius;
         this.barrelLength = barrelLength;
+        if (barrelLength < baseRadius) {
+            this.barrelLength = barrelLength + baseRadius;
+        }
         paint.setStrokeWidth(barrelWidth);
         paint.setColor(Color.MAGENTA);
         // cannon barrel facing straight right
