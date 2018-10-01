@@ -48,7 +48,9 @@ public class Cannon {
                                 view.getScreenHeight() / 2 - radius, radius, velocityX,
                                 velocityY);
 
-        cannonball.playSound();
+        if (cannonball != null) {
+            cannonball.playSound();
+        }
     }
 
     public void draw(Canvas canvas) {

@@ -306,6 +306,10 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
 
     // draws the game to the given Canvas
     public void drawGameElements(Canvas canvas) {
+        if (canvas == null) {
+            return;
+        }
+
         // clear the background
         canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(),
                 backgroundPaint);
@@ -324,8 +328,9 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
         blocker.draw(canvas); // draw the blocker
 
         // draw all of the Targets
-        for (GameElement target : targets)
+        for (GameElement target : targets) {
             target.draw(canvas);
+        }
     }
 
     // checks if the ball collides with the Blocker or any of the Targets
