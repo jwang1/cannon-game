@@ -133,6 +133,12 @@ public class CannonView extends SurfaceView implements SurfaceHolder.Callback {
         screenWidth = w; // store CannonView's width
         screenHeight = h; // store CannonView's height
 
+        if (screenHeight > screenWidth) {
+            int tmp = screenHeight;
+            screenHeight = screenWidth;
+            screenWidth = tmp;
+        }
+
         // configure text properties
         textPaint.setTextSize((int) (TEXT_SIZE_PERCENT * screenHeight));
         textPaint.setAntiAlias(true); // smoothes the text

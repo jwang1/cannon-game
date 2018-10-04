@@ -1,5 +1,6 @@
 package com.iexpress.android.cannongame.element;
 
+import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,6 +17,9 @@ public class Cannon {
     private Cannonball cannonball;
     private Paint paint = new Paint();
     private CannonView view;
+
+    private int width;
+    private int height;
 
     public Cannon(CannonView view, int baseRadius, int barrelLength, int barrelWidth) {
         this.view = view;
@@ -38,17 +42,26 @@ public class Cannon {
     }
 
     public void fireCannonball() {
+        int width = view.getScreenWidth();
+        int height = view.getScreenHeight();
+
+        if (height > width) {
+            int tmp = height;
+            height = width;
+            width = tmp;
+        }
+
         // x component of cannon ball velocity
-        int velocityX = (int) (CannonView.CANNONBALL_SPEED_PERCENT * view.getScreenWidth()
+        int velocityX = (int) (CannonView.CANNONBALL_SPEED_PERCENT * width
                                * Math.sin(barrelAngle));
 
-        int velocityY = (int) (CannonView.CANNONBALL_SPEED_PERCENT * view.getScreenWidth()
+        int velocityY = (int) (CannonView.CANNONBALL_SPEED_PERCENT * width
                                 * -Math.cos(barrelAngle));
 
-        int radius = (int) (view.getScreenHeight() * CannonView.CANNONBALL_RADIUS_PERCENT);
+        int radius = (int) (height * CannonView.CANNONBALL_RADIUS_PERCENT);
 
         cannonball = new Cannonball(view, Color.BLACK, CannonView.CANNON_SOUND_ID, -radius,
-                                view.getScreenHeight() / 2 - radius, radius, velocityX,
+                                height / 2 - radius, radius, velocityX,
                                 velocityY);
 
         if (cannonball != null) {
@@ -57,7 +70,8 @@ public class Cannon {
     }
 
     public void draw(Canvas canvas) {
-        canvas.drawLine(0, view.getScreenHeight() / 2, barrelEnd.x,
+        canvas.drawLine(0, view.getScreenHeight() / 2,
+                 baseRadius / 2 + barrelEnd.x,
                         barrelEnd.y, paint);
 
         canvas.drawCircle(0, (int) view.getScreenHeight() / 2,
